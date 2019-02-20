@@ -706,7 +706,7 @@ duration,month,hour,day_of_week,user_type
 2.443,3,18,Monday,Subscriber
 29.598,3,18,Monday,Subscriber
 6.375,3,18,Monday,Subscriber
-11.813,3,18,Monday,Subscriber
+11.812,3,18,Monday,Subscriber
 5.414,3,18,Monday,Subscriber
 21.987,3,18,Monday,Subscriber
 10.575,3,18,Monday,Subscriber
@@ -11708,7 +11708,7 @@ duration,month,hour,day_of_week,user_type
 17.521,4,8,Wednesday,Subscriber
 11.181,4,9,Wednesday,Subscriber
 9.186,4,9,Wednesday,Subscriber
-10.063,4,9,Wednesday,Subscriber
+10.062,4,9,Wednesday,Subscriber
 7.89,4,9,Wednesday,Subscriber
 5.144,4,9,Wednesday,Subscriber
 4.929,4,9,Wednesday,Subscriber
@@ -17346,7 +17346,7 @@ duration,month,hour,day_of_week,user_type
 19.82,5,20,Friday,Subscriber
 7.154,5,21,Friday,Subscriber
 2.649,5,21,Friday,Subscriber
-13.313,5,21,Friday,Subscriber
+13.312,5,21,Friday,Subscriber
 4.913,5,22,Friday,Subscriber
 4.763,5,22,Friday,Subscriber
 9.523,5,22,Friday,Subscriber
@@ -38282,7 +38282,7 @@ duration,month,hour,day_of_week,user_type
 14.685,7,15,Sunday,Subscriber
 13.456,7,15,Sunday,Subscriber
 15.574,7,15,Sunday,Subscriber
-18.313,7,15,Sunday,Subscriber
+18.312,7,15,Sunday,Subscriber
 8.118,7,15,Sunday,Subscriber
 22.034,7,15,Sunday,Customer
 12.163,7,14,Sunday,Subscriber
@@ -50022,7 +50022,7 @@ duration,month,hour,day_of_week,user_type
 17.021,9,7,Monday,Subscriber
 10.134,9,7,Monday,Subscriber
 8.124,9,7,Monday,Subscriber
-5.563,9,7,Monday,Subscriber
+5.562,9,7,Monday,Subscriber
 96.033,9,2,Monday,Customer
 11.861,9,1,Monday,Subscriber
 5.374,9,1,Monday,Subscriber
