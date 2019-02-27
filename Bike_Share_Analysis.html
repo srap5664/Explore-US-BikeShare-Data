@@ -11802,10 +11802,14 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='pose_questions'></a></p>
-<h2 id="Posing-Questions">Posing Questions<a class="anchor-link" href="#Posing-Questions">&#182;</a></h2><p>Before looking at the bike sharing data, we should start by asking questions you might want to understand about the bike share data. Consider, for example, if you were working for Motivate. What kinds of information would you want to know about in order to make smarter business decisions? If you were a user of the bike-share service, what factors might influence how you would want to use the service?</p>
-<p>How long the avarge user use the bike for? <br>
-Which of the cities has more active users? <br>
-How long distance the averge user drive the bike for? <br></p>
+<h2 id="Posing-Questions">Posing Questions<a class="anchor-link" href="#Posing-Questions">&#182;</a></h2><p>Before looking at the bike sharing data, we should start by asking questions we might want to understand about the bike share data. Consider, for example, if you were working for Motivate.<br>
+What kinds of information would you want to know about in order to make smarter business decisions?<br>
+If you were a user of the bike-share service, what factors might influence how you would want to use the service?</p>
+<h4 id="Questions-to-be-investigated">Questions to be investigated<a class="anchor-link" href="#Questions-to-be-investigated">&#182;</a></h4><ul>
+<li>How long the avarge user use the bike for ?</li>
+<li>Which one of the cities has more active users ?</li>
+<li>How long distance the averge user drive the bike for ?</li>
+</ul>
 
 </div>
 </div>
@@ -11844,7 +11848,7 @@ How long distance the averge user drive the bike for? <br></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_first_point</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -11857,7 +11861,7 @@ How long distance the averge user drive the bike for? <br></p>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">City: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">))</span>
     
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
-        <span class="c1">##Use the csv library to set up a DictReader object. ##</span>
+        <span class="c1">## Use the csv library to set up a DictReader object. ##</span>
         <span class="n">trip_reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
         
         <span class="c1">## Use a function on the DictReader object to read the  ##</span>
@@ -11865,6 +11869,7 @@ How long distance the averge user drive the bike for? <br></p>
         <span class="n">first_trip</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">trip_reader</span><span class="p">)</span>
         
         <span class="c1">## Use the pprint library to print the first trip. ##</span>
+
         <span class="n">pprint</span><span class="p">(</span><span class="n">first_trip</span><span class="p">)</span>
     <span class="c1"># output city name and first trip for later testing</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="n">first_trip</span><span class="p">)</span>
@@ -11897,33 +11902,47 @@ How long distance the averge user drive the bike for? <br></p>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 City: NYC
+OrderedDict([(&#39;tripduration&#39;, &#39;839&#39;),
+             (&#39;starttime&#39;, &#39;1/1/2016 00:09:55&#39;),
+             (&#39;stoptime&#39;, &#39;1/1/2016 00:23:54&#39;),
+             (&#39;start station id&#39;, &#39;532&#39;),
+             (&#39;start station name&#39;, &#39;S 5 Pl &amp; S 4 St&#39;),
+             (&#39;start station latitude&#39;, &#39;40.710451&#39;),
+             (&#39;start station longitude&#39;, &#39;-73.960876&#39;),
+             (&#39;end station id&#39;, &#39;401&#39;),
+             (&#39;end station name&#39;, &#39;Allen St &amp; Rivington St&#39;),
+             (&#39;end station latitude&#39;, &#39;40.72019576&#39;),
+             (&#39;end station longitude&#39;, &#39;-73.98997825&#39;),
+             (&#39;bikeid&#39;, &#39;17109&#39;),
+             (&#39;usertype&#39;, &#39;Customer&#39;),
+             (&#39;birth year&#39;, &#39;&#39;),
+             (&#39;gender&#39;, &#39;0&#39;)])
+
+City: Chicago
+OrderedDict([(&#39;trip_id&#39;, &#39;9080545&#39;),
+             (&#39;starttime&#39;, &#39;3/31/2016 23:30&#39;),
+             (&#39;stoptime&#39;, &#39;3/31/2016 23:46&#39;),
+             (&#39;bikeid&#39;, &#39;2295&#39;),
+             (&#39;tripduration&#39;, &#39;926&#39;),
+             (&#39;from_station_id&#39;, &#39;156&#39;),
+             (&#39;from_station_name&#39;, &#39;Clark St &amp; Wellington Ave&#39;),
+             (&#39;to_station_id&#39;, &#39;166&#39;),
+             (&#39;to_station_name&#39;, &#39;Ashland Ave &amp; Wrightwood Ave&#39;),
+             (&#39;usertype&#39;, &#39;Subscriber&#39;),
+             (&#39;gender&#39;, &#39;Male&#39;),
+             (&#39;birthyear&#39;, &#39;1990&#39;)])
+
+City: Washington
+OrderedDict([(&#39;Duration (ms)&#39;, &#39;427387&#39;),
+             (&#39;Start date&#39;, &#39;3/31/2016 22:57&#39;),
+             (&#39;End date&#39;, &#39;3/31/2016 23:04&#39;),
+             (&#39;Start station number&#39;, &#39;31602&#39;),
+             (&#39;Start station&#39;, &#39;Park Rd &amp; Holmead Pl NW&#39;),
+             (&#39;End station number&#39;, &#39;31207&#39;),
+             (&#39;End station&#39;, &#39;Georgia Ave and Fairmont St NW&#39;),
+             (&#39;Bike number&#39;, &#39;W20842&#39;),
+             (&#39;Member Type&#39;, &#39;Registered&#39;)])
 </pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-1-213d32113632&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     29</span> example_trips <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">{</span><span class="ansi-blue-fg">}</span>
-<span class="ansi-green-intense-fg ansi-bold">     30</span> <span class="ansi-green-fg">for</span> data_file <span class="ansi-green-fg">in</span> data_files<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 31</span><span class="ansi-red-fg">     </span>city<span class="ansi-blue-fg">,</span> first_trip <span class="ansi-blue-fg">=</span> print_first_point<span class="ansi-blue-fg">(</span>data_file<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     32</span>     example_trips<span class="ansi-blue-fg">[</span>city<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> first_trip
-
-<span class="ansi-green-fg">&lt;ipython-input-1-213d32113632&gt;</span> in <span class="ansi-cyan-fg">print_first_point</span><span class="ansi-blue-fg">(filename)</span>
-<span class="ansi-green-intense-fg ansi-bold">     10</span>     <span class="ansi-green-fg">with</span> open<span class="ansi-blue-fg">(</span>filename<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">as</span> f_in<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>         <span class="ansi-red-fg">##Use the csv library to set up a DictReader object. ##</span>
-<span class="ansi-green-fg">---&gt; 12</span><span class="ansi-red-fg">         </span>trip_reader <span class="ansi-blue-fg">=</span> csv<span class="ansi-blue-fg">.</span>DictReader<span class="ansi-blue-fg">(</span>f_in<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     13</span> 
-<span class="ansi-green-intense-fg ansi-bold">     14</span>         <span class="ansi-red-fg">## Use a function on the DictReader object to read the  ##</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;csv&#39; is not defined</pre>
 </div>
 </div>
 
@@ -11935,17 +11954,14 @@ City: NYC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If everything has been filled out correctly, you should see below the printout of each city name (which has been parsed from the data file name) that the first trip has been parsed in the form of a dictionary. When you set up a <code>DictReader</code> object, the first row of the data file is normally interpreted as column names. Every other row in the data file will use those column names as keys, as a dictionary is generated for each row.</p>
-<p>This will be useful since we can refer to quantities by an easily-understandable label instead of just a numeric index. For example, if we have a trip stored in the variable <code>row</code>, then we would rather get the trip duration from <code>row['duration']</code> instead of <code>row[0]</code>.</p>
 <p><a id='condensing'></a></p>
 <h3 id="Condensing-the-Trip-Data">Condensing the Trip Data<a class="anchor-link" href="#Condensing-the-Trip-Data">&#182;</a></h3><p>It should also be observable from the above printout that each city provides different information. Even where the information is the same, the column names and formats are sometimes different. To make things as simple as possible when we get to the actual exploration, we should trim and clean the data. Cleaning the data makes sure that the data formats across the cities are consistent, while trimming focuses only on the parts of the data we are most interested in to make the exploration easier to work with.</p>
-<p>You will generate new data files with five values of interest for each trip: trip duration, starting month, starting hour, day of the week, and user type. Each of these may require additional wrangling depending on the city:</p>
+<p>we will generate new data files with five values of interest for each trip: trip duration, starting month, starting hour, day of the week, and user type. Each of these may require additional wrangling depending on the city:</p>
 <ul>
 <li><strong>Duration</strong>: This has been given to us in seconds (New York, Chicago) or milliseconds (Washington). A more natural unit of analysis will be if all the trip durations are given in terms of minutes.</li>
 <li><strong>Month</strong>, <strong>Hour</strong>, <strong>Day of Week</strong>: Ridership volume is likely to change based on the season, time of day, and whether it is a weekday or weekend. Use the start time of the trip to obtain these values. The New York City data includes the seconds in their timestamps, while Washington and Chicago do not. The <a href="https://docs.python.org/3/library/datetime.html"><code>datetime</code></a> package will be very useful here to make the needed conversions.</li>
 <li><strong>User Type</strong>: It is possible that users who are subscribed to a bike-share system will have different patterns of use compared to users who only have temporary passes. Washington divides its users into two types: 'Registered' for users with annual, monthly, and other longer-term subscriptions, and 'Casual', for users with 24-hour, 3-day, and other short-term passes. The New York and Chicago data uses 'Subscriber' and 'Customer' for these groups, respectively. For consistency, you will convert the Washington labels to match the other two.</li>
 </ul>
-<p><strong>Question 3a</strong>: Complete the helper functions in the code cells below to address each of the cleaning tasks described above.</p>
 
 </div>
 </div>
@@ -11959,16 +11975,7 @@ City: NYC
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes as input a dictionary containing info about a single trip (datum) and</span>
 <span class="sd">    its origin city (city) a&#39;tripduration&#39;nd returns the trip duration in units of minutes.</span>
-<span class="sd">    </span>
-<span class="sd">    Remember that Washington is in terms of milliseconds while Chicago and NYC</span>
-<span class="sd">    are in terms of seconds. </span>
-<span class="sd">    </span>
-<span class="sd">    HINT: The csv module reads in all of the data as strings, including numeric</span>
-<span class="sd">    values. You will need a function to convert the strings into an appropriate</span>
-<span class="sd">    numeric type when making your transformations.</span>
-<span class="sd">    see https://docs.python.org/3/library/functions.html</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># YOUR CODE HERE</span>
     <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;Washington&#39;</span><span class="p">:</span>
         <span class="n">duration</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s1">&#39;Duration (ms)&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">60000</span>
     <span class="k">else</span><span class="p">:</span> 
@@ -11978,8 +11985,7 @@ City: NYC
 
 
 <span class="c1"># Some tests to check that your code works. There should be no output if all of</span>
-<span class="c1"># the assertions pass. The `example_trips` dictionary was obtained from when</span>
-<span class="c1"># you printed the first trip from each of the original data files.</span>
+<span class="c1"># the assertions pass.</span>
 <span class="n">tests</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="mf">13.9833</span><span class="p">,</span>
          <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="mf">15.4333</span><span class="p">,</span>
          <span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="mf">7.1231</span><span class="p">}</span>
@@ -11995,18 +12001,17 @@ City: NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">time_of_trip</span><span class="p">(</span><span class="n">datum</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Takes as input a dictionary containing info about a single trip (datum) and</span>
 <span class="sd">    its origin city (city) and returns the month, hour, and day of the week in</span>
-<span class="sd">    which the trip was made.    </span>
+<span class="sd">    which the trip was made.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
      
-    <span class="c1"># YOUR CODE HERE</span>
-    <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;Washington&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s2">&quot;Washington&quot;</span><span class="p">:</span>
         <span class="n">my_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s1">&#39;Start date&#39;</span><span class="p">],</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y %H:%M&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;NYC&#39;</span><span class="p">:</span>
         <span class="n">my_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s1">&#39;starttime&#39;</span><span class="p">],</span><span class="s2">&quot;%m/</span><span class="si">%d</span><span class="s2">/%Y %H:%M:%S&quot;</span><span class="p">)</span>
@@ -12016,13 +12021,11 @@ City: NYC
     <span class="n">month</span> <span class="o">=</span> <span class="n">my_date</span><span class="o">.</span><span class="n">month</span>
     <span class="n">hour</span> <span class="o">=</span> <span class="n">my_date</span><span class="o">.</span><span class="n">hour</span>
     <span class="n">day_of_week</span> <span class="o">=</span> <span class="n">my_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%A&quot;</span><span class="p">)</span>
-    
-        
+     
     <span class="k">return</span> <span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">day_of_week</span><span class="p">)</span>
 
-
 <span class="c1"># Some tests to check that your code works. There should be no output if all of</span>
-<span class="c1"># the assertions pass.</span>
+<span class="c1"># the assertions pass. </span>
 <span class="n">tests</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">),</span>
          <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">),</span>
          <span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="s1">&#39;Thursday&#39;</span><span class="p">)}</span>
@@ -12035,35 +12038,10 @@ City: NYC
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-2-9aa1902326ac&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">     29</span> 
-<span class="ansi-green-intense-fg ansi-bold">     30</span> <span class="ansi-green-fg">for</span> city <span class="ansi-green-fg">in</span> tests<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 31</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">assert</span> time_of_trip<span class="ansi-blue-fg">(</span>example_trips<span class="ansi-blue-fg">[</span>city<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> city<span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">==</span> tests<span class="ansi-blue-fg">[</span>city<span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">KeyError</span>: &#39;NYC&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">type_of_user</span><span class="p">(</span><span class="n">datum</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -12071,12 +12049,8 @@ City: NYC
 <span class="sd">    Takes as input a dictionary containing info about a single trip (datum) and</span>
 <span class="sd">    its origin city (city) and returns the type of system user that made the</span>
 <span class="sd">    trip.</span>
-<span class="sd">    </span>
-<span class="sd">    Remember that Washington has different category names compared to Chicago</span>
-<span class="sd">    and NYC. </span>
 <span class="sd">    &quot;&quot;&quot;</span>
      
-    <span class="c1"># YOUR CODE HERE</span>
     <span class="k">if</span> <span class="n">city</span> <span class="o">==</span> <span class="s2">&quot;Washington&quot;</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">datum</span><span class="p">[</span><span class="s2">&quot;Member Type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Registered&quot;</span><span class="p">:</span>
             <span class="n">user_type</span> <span class="o">=</span> <span class="s2">&quot;Subscriber&quot;</span>
@@ -12088,8 +12062,7 @@ City: NYC
 
 
 <span class="c1"># Some tests to check that your code works. There should be no output if all of</span>
-<span class="c1"># the assertions pass. The `example_trips` dictionary was obtained from when</span>
-<span class="c1"># you printed the first trip from each of the original data files.</span>
+<span class="c1"># the assertions pass.</span>
 <span class="n">tests</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;NYC&#39;</span><span class="p">:</span> <span class="s1">&#39;Customer&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Chicago&#39;</span><span class="p">:</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">,</span>
          <span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">}</span>
@@ -12105,7 +12078,7 @@ City: NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">condense_data</span><span class="p">(</span><span class="n">in_file</span><span class="p">,</span> <span class="n">out_file</span><span class="p">,</span> <span class="n">city</span><span class="p">):</span>
@@ -12131,7 +12104,7 @@ City: NYC
             <span class="c1"># data point</span>
             <span class="n">new_point</span> <span class="o">=</span> <span class="p">{}</span>
 
-            <span class="c1">##  use the helper functions to get the cleaned data from  ##</span>
+            <span class="c1">## use the helper functions to get the cleaned data from  ##</span>
             <span class="c1">## the original data dictionaries.                              ##</span>
             <span class="c1">## Note that the keys for the new_point dictionary should match ##</span>
             <span class="c1">## the column names set in the DictWriter object above.         ##</span>
@@ -12147,7 +12120,7 @@ City: NYC
                 <span class="s1">&#39;day_of_week&#39;</span><span class="p">:</span> <span class="n">point_day_of_week</span><span class="p">,</span>
                 <span class="s1">&#39;user_type&#39;</span><span class="p">:</span> <span class="n">point_user_type</span><span class="p">}</span>
 
-            <span class="c1">##  write the processed information to the output file.     ##</span>
+            <span class="c1">## write the processed information to the output file. ##</span>
             <span class="n">trip_writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">new_point</span><span class="p">)</span>
             
 </pre></div>
@@ -12159,7 +12132,7 @@ City: NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># testing the code</span>
@@ -12188,17 +12161,29 @@ City: NYC
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
+<div class="output_subarea output_stream output_stdout output_text">
 <pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-ca120b47f02c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> 
-<span class="ansi-green-intense-fg ansi-bold">      9</span> <span class="ansi-green-fg">for</span> city<span class="ansi-blue-fg">,</span> filenames <span class="ansi-green-fg">in</span> city_info<span class="ansi-blue-fg">.</span>items<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg">     </span>condense_data<span class="ansi-blue-fg">(</span>filenames<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;in_file&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> filenames<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;out_file&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">,</span> city<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     11</span>     print_first_point<span class="ansi-blue-fg">(</span>filenames<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;out_file&#39;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+City: Washington
+OrderedDict([(&#39;duration&#39;, &#39;7.123&#39;),
+             (&#39;month&#39;, &#39;3&#39;),
+             (&#39;hour&#39;, &#39;22&#39;),
+             (&#39;day_of_week&#39;, &#39;Thursday&#39;),
+             (&#39;user_type&#39;, &#39;Subscriber&#39;)])
 
-<span class="ansi-red-fg">NameError</span>: name &#39;condense_data&#39; is not defined</pre>
+City: Chicago
+OrderedDict([(&#39;duration&#39;, &#39;15.433&#39;),
+             (&#39;month&#39;, &#39;3&#39;),
+             (&#39;hour&#39;, &#39;23&#39;),
+             (&#39;day_of_week&#39;, &#39;Thursday&#39;),
+             (&#39;user_type&#39;, &#39;Subscriber&#39;)])
+
+City: NYC
+OrderedDict([(&#39;duration&#39;, &#39;13.983&#39;),
+             (&#39;month&#39;, &#39;1&#39;),
+             (&#39;hour&#39;, &#39;0&#39;),
+             (&#39;day_of_week&#39;, &#39;Friday&#39;),
+             (&#39;user_type&#39;, &#39;Customer&#39;)])
+</pre>
 </div>
 </div>
 
@@ -12211,10 +12196,10 @@ City: NYC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='eda'></a></p>
-<h2 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h2><p>Now that you have the data collected and wrangled, you're ready to start exploring the data. In this section you will write some code to compute descriptive statistics from the data. You will also be introduced to the <code>matplotlib</code> library to create some basic histograms of the data.</p>
+<h2 id="Exploratory-Data-Analysis">Exploratory Data Analysis<a class="anchor-link" href="#Exploratory-Data-Analysis">&#182;</a></h2><p>Now that we have the data collected and wrangled, we're ready to start exploring the data. In this section we will write some code to compute descriptive statistics from the data. we will also be using the <code>matplotlib</code> library to create some basic histograms of the data.</p>
 <p><a id='statistics'></a></p>
-<h3 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">&#182;</a></h3><p>First, let's compute some basic counts. The first cell below contains a function that uses the csv module to iterate through a provided data file, returning the number of trips made by subscribers and customers. The second cell runs this function on the example Bay Area data in the <code>/examples/</code> folder. Modify the cells to answer the question below.</p>
-<p><strong>Question 4a</strong>: Which city has the highest number of trips? Which city has the highest proportion of trips made by subscribers? Which city has the highest proportion of trips made by short-term customers?</p>
+<h3 id="Statistics">Statistics<a class="anchor-link" href="#Statistics">&#182;</a></h3><p>First, let's compute some basic counts. The first cell below contains a function that uses the csv module to iterate through a provided data file, returning the number of trips made by subscribers and customers.</p>
+<p><strong>Question</strong>: Which city has the highest number of trips? Which city has the highest proportion of trips made by subscribers? Which city has the highest proportion of trips made by short-term customers?</p>
 <p><strong>Answer</strong>: NYC has the highest number trips (276798 trips), NYC city has the highest proportion of trips made by subscribers (%88.84), Chicago has the highest proportion of trips made by short-term customers (%23.77)</p>
 
 </div>
@@ -12222,7 +12207,7 @@ City: NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">number_of_trips</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
@@ -12259,7 +12244,7 @@ City: NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Modify this and the previous cell to answer Question 4a. Remember to run ##</span>
@@ -12280,7 +12265,7 @@ City: NYC
                      <span class="s1">&#39;p_subscribers&#39;</span><span class="p">:</span> <span class="n">p_subscribers</span><span class="p">,</span>
                      <span class="s1">&#39;p_customers&#39;</span><span class="p">:</span> <span class="n">p_customers</span><span class="p">}</span>
     
-<span class="c1">#print all iformation</span>
+<span class="c1"># print all iformation</span>
 <span class="k">for</span> <span class="n">city</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">data_info</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">city</span> <span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span>
           <span class="s1">&#39;total trips : &#39;</span> <span class="p">,</span>  <span class="n">info</span><span class="p">[</span><span class="s1">&#39;n_total&#39;</span><span class="p">]</span> <span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="p">,</span>
@@ -12343,7 +12328,7 @@ NYC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Question 4b</strong>: Bike-share systems are designed for riders to take short trips. Most of the time, users are allowed to take trips of 30 minutes or less with no additional charges, with overage charges made for trips of longer than that duration. What is the average trip length for each city? What proportion of rides made in each city are longer than 30 minutes?</p>
+<p><strong>Question</strong>: Bike-share systems are designed for riders to take short trips. Most of the time, users are allowed to take trips of 30 minutes or less with no additional charges, with overage charges made for trips of longer than that duration. What is the average trip length for each city? What proportion of rides made in each city are longer than 30 minutes?</p>
 <p><strong>Answer</strong>: average trip length Chicago is 16.56 , NYC is 15.81 , Washington is 18.93. and the proportion of rides that takes over 30 minutes Chicago is 8.33 , NYC is 7.3 , Washington is 10.84.</p>
 
 </div>
@@ -12351,14 +12336,13 @@ NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##  The csv module reads in all of the data as strings, including  ##</span>
-<span class="c1">## numeric values. You will need a function to convert the strings      ##</span>
-<span class="c1">## into an appropriate numeric type before you aggregate data.          ##</span>
-<span class="c1">## TIP: For the Bay Area example, the average trip length is 14 minutes ##</span>
-<span class="c1">## and 3.5% of trips are longer than 30 minutes.                        ##</span>
+<span class="c1">## numeric values. we will need a function to convert the strings      ##</span>
+<span class="c1">## into an appropriate numeric type before we aggregate data.          ##</span>
+
 <span class="k">def</span> <span class="nf">duration_of_trip</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
@@ -12370,19 +12354,19 @@ NYC
         <span class="n">trips_over_30</span> <span class="o">=</span> <span class="mi">0</span>
         
         <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
-            <span class="c1">#add this trip duration to total trips durations</span>
+            <span class="c1"># add this trip duration to total trips durations</span>
             <span class="n">total_trips_duration</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
             
-            <span class="c1">#count the trip to the total</span>
+            <span class="c1"># count the trip to the total</span>
             <span class="n">total_trips</span> <span class="o">+=</span> <span class="mi">1</span>
             
-            <span class="c1">#count if it is over 30 minutes</span>
+            <span class="c1"># count if it is over 30 minutes</span>
             <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
                 <span class="n">trips_over_30</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="c1">#compute the proportion of the trips over 30 minutes        </span>
+        <span class="c1"># compute the proportion of the trips over 30 minutes        </span>
         <span class="n">p_over_30</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">trips_over_30</span> <span class="o">/</span> <span class="n">total_trips</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span> <span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         
-        <span class="c1">#compute the total average trips</span>
+        <span class="c1"># compute the total average trips</span>
         <span class="n">avg_trips</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">total_trips_duration</span> <span class="o">/</span> <span class="n">total_trips</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         
         <span class="k">return</span><span class="p">(</span><span class="n">p_over_30</span><span class="p">,</span> <span class="n">avg_trips</span><span class="p">)</span>
@@ -12396,14 +12380,15 @@ NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">duration_info</span> <span class="o">=</span> <span class="p">{}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># printing the duration information</span>
+<span class="n">duration_info</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">city</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">data_files</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">p_over_30</span> <span class="p">,</span> <span class="n">avg_trips</span> <span class="o">=</span> <span class="n">duration_of_trip</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-    <span class="n">duration_info</span><span class="p">[</span><span class="n">city</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p_of_trips_over_30&#39;</span><span class="p">:</span> <span class="n">p_over_30</span><span class="p">,</span>
-                           <span class="s1">&#39;average_trips&#39;</span><span class="p">:</span> <span class="n">avg_trips</span><span class="p">}</span>
+    <span class="n">duration_info</span><span class="p">[</span><span class="n">city</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;p of trips  over 30&#39;</span><span class="p">:</span> <span class="n">p_over_30</span><span class="p">,</span>
+                           <span class="s1">&#39;average trips&#39;</span><span class="p">:</span> <span class="n">avg_trips</span><span class="p">}</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">duration_info</span><span class="p">)</span>    
 </pre></div>
 
@@ -12421,9 +12406,9 @@ NYC
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;Chicago&#39;: {&#39;average_trips&#39;: 16.56, &#39;p_of_trips_over_30&#39;: 8.33},
- &#39;NYC&#39;: {&#39;average_trips&#39;: 15.81, &#39;p_of_trips_over_30&#39;: 7.3},
- &#39;Washington&#39;: {&#39;average_trips&#39;: 18.93, &#39;p_of_trips_over_30&#39;: 10.84}}
+<pre>{&#39;Chicago&#39;: {&#39;average trips&#39;: 16.56, &#39;p of trips  over 30&#39;: 8.33},
+ &#39;NYC&#39;: {&#39;average trips&#39;: 15.81, &#39;p of trips  over 30&#39;: 7.3},
+ &#39;Washington&#39;: {&#39;average trips&#39;: 18.93, &#39;p of trips  over 30&#39;: 10.84}}
 </pre>
 </div>
 </div>
@@ -12436,54 +12421,47 @@ NYC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Question 4c</strong>: Dig deeper into the question of trip duration based on ridership. Choose one city. Within that city, which type of user takes longer rides on average: Subscribers or Customers?</p>
-<p><strong>Answer</strong>: I choosed NYC <br> average subscriber duration :  13.68 <br>average customer duration :  32.78</p>
+<p><strong>Question</strong>: which type of user in NYC takes longer rides on average: Subscribers or Customers?</p>
+<p><strong>Answer</strong>:  average subscriber duration :  13.68 <br> 
+             average customer duration :  32.78</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 4c. If you have    ##</span>
-<span class="c1">## not done so yet, consider revising some of your previous code to    ##</span>
-<span class="c1">## make use of functions for reusability.                              ##</span>
-<span class="c1">##                                                                     ##</span>
-<span class="c1">## Subscriber trip duration to be 9.5 minutes and the average Customer ##</span>
-<span class="c1">## trip duration to be 54.6 minutes. Do the other cities have this     ##</span>
-<span class="c1">## level of difference?                                                ##</span>
-
-<span class="c1">#initialize count variables</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># initialize count variables</span>
 <span class="n">total_subscriber_trips</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">total_subscriber_duration</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">total_customer_trips</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">total_customer_duration</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1">#reading NYC city file</span>
+<span class="c1"># reading NYC city file</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./data/NYC-2016-Summary.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
-        <span class="c1">#check the type of user</span>
+        <span class="c1"># check the type of user</span>
         <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">:</span>
             <span class="c1">#add trip&#39;s duration to subscriber&#39;s duration</span>
             <span class="n">total_subscriber_duration</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
             
-            <span class="c1">#count the trip </span>
+            <span class="c1"># count the trip </span>
             <span class="n">total_subscriber_trips</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c1">#add trip&#39;s duration to customer&#39;s duration</span>
+            <span class="c1"># add trip&#39;s duration to customer&#39;s duration</span>
             <span class="n">total_customer_duration</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
             <span class="c1">#count the trip</span>
             <span class="n">total_customer_trips</span> <span class="o">+=</span> <span class="mi">1</span>
             
-    <span class="c1">#compute averages for both </span>
+    <span class="c1"># compute averages for both </span>
     <span class="n">avg_subscriber_duration</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">total_subscriber_duration</span> <span class="o">/</span> <span class="n">total_subscriber_trips</span><span class="p">)</span> <span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="n">avg_customer_duration</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">total_customer_duration</span> <span class="o">/</span> <span class="n">total_customer_trips</span><span class="p">)</span> <span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     
-<span class="c1">#printing the information</span>
+<span class="c1"># printing the information</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average subscriber duration : &#39;</span><span class="p">,</span> <span class="n">avg_subscriber_duration</span><span class="p">,</span>
       <span class="s1">&#39;average customer duration : &#39;</span><span class="p">,</span> <span class="n">avg_customer_duration</span><span class="p">)</span>
 </pre></div>
@@ -12516,79 +12494,17 @@ NYC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='visualizations'></a></p>
-<h3 id="Visualizations">Visualizations<a class="anchor-link" href="#Visualizations">&#182;</a></h3><p>The last set of values that you computed should have pulled up an interesting result. While the mean trip time for Subscribers is well under 30 minutes, the mean trip time for Customers is actually <em>above</em> 30 minutes! It will be interesting for us to look at how the trip times are distributed. In order to do this, a new library will be introduced here, <code>matplotlib</code>. Run the cell below to load the library and to generate an example plot.</p>
+<h3 id="Visualizations">Visualizations<a class="anchor-link" href="#Visualizations">&#182;</a></h3><p>The last set of values that we computed should have pulled up an interesting result. While the mean trip time for Subscribers is well under 30 minutes, the mean trip time for Customers is actually <em>above</em> 30 minutes! It will be interesting for us to look at how the trip times are distributed. In order to do this, a new library will be introduced here, <code>matplotlib</code>. we will now use these functions to create a histogram of the trip times for NYC.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load library</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># this is a &#39;magic word&#39; that allows for plots to be displayed</span>
-<span class="c1"># inline with the notebook. If you want to know more, see:</span>
-<span class="c1"># http://ipython.readthedocs.io/en/stable/interactive/magics.html</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline 
-
-<span class="c1"># example histogram, data taken from bay area sample</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">7.65</span><span class="p">,</span>  <span class="mf">8.92</span><span class="p">,</span>  <span class="mf">7.42</span><span class="p">,</span>  <span class="mf">5.50</span><span class="p">,</span> <span class="mf">16.17</span><span class="p">,</span>  <span class="mf">4.20</span><span class="p">,</span>  <span class="mf">8.98</span><span class="p">,</span>  <span class="mf">9.62</span><span class="p">,</span> <span class="mf">11.48</span><span class="p">,</span> <span class="mf">14.33</span><span class="p">,</span>
-        <span class="mf">19.02</span><span class="p">,</span> <span class="mf">21.53</span><span class="p">,</span>  <span class="mf">3.90</span><span class="p">,</span>  <span class="mf">7.97</span><span class="p">,</span>  <span class="mf">2.62</span><span class="p">,</span>  <span class="mf">2.67</span><span class="p">,</span>  <span class="mf">3.08</span><span class="p">,</span> <span class="mf">14.40</span><span class="p">,</span> <span class="mf">12.90</span><span class="p">,</span>  <span class="mf">7.83</span><span class="p">,</span>
-        <span class="mf">25.12</span><span class="p">,</span>  <span class="mf">8.30</span><span class="p">,</span>  <span class="mf">4.93</span><span class="p">,</span> <span class="mf">12.43</span><span class="p">,</span> <span class="mf">10.60</span><span class="p">,</span>  <span class="mf">6.17</span><span class="p">,</span> <span class="mf">10.88</span><span class="p">,</span>  <span class="mf">4.78</span><span class="p">,</span> <span class="mf">15.15</span><span class="p">,</span>  <span class="mf">3.53</span><span class="p">,</span>
-         <span class="mf">9.43</span><span class="p">,</span> <span class="mf">13.32</span><span class="p">,</span> <span class="mf">11.72</span><span class="p">,</span>  <span class="mf">9.85</span><span class="p">,</span>  <span class="mf">5.22</span><span class="p">,</span> <span class="mf">15.10</span><span class="p">,</span>  <span class="mf">3.95</span><span class="p">,</span>  <span class="mf">3.17</span><span class="p">,</span>  <span class="mf">8.78</span><span class="p">,</span>  <span class="mf">1.88</span><span class="p">,</span>
-         <span class="mf">4.55</span><span class="p">,</span> <span class="mf">12.68</span><span class="p">,</span> <span class="mf">12.38</span><span class="p">,</span>  <span class="mf">9.78</span><span class="p">,</span>  <span class="mf">7.63</span><span class="p">,</span>  <span class="mf">6.45</span><span class="p">,</span> <span class="mf">17.38</span><span class="p">,</span> <span class="mf">11.90</span><span class="p">,</span> <span class="mf">11.52</span><span class="p">,</span>  <span class="mf">8.63</span><span class="p">,]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Trip Durations&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration (m)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In the above cell, we collected fifty trip times in a list, and passed this list as the first argument to the <code>.hist()</code> function. This function performs the computations and creates plotting objects for generating a histogram, but the plot is actually not rendered until the <code>.show()</code> function is executed. The <code>.title()</code> and <code>.xlabel()</code> functions provide some labeling for plot context.</p>
-<p>You will now use these functions to create a histogram of the trip times for the city you selected in question 4c. Don't separate the Subscribers and Customers for now: just collect all of the trip times and plot them.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to collect all of the trip times as a list ##</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## collecting all of the trip times as a list ##</span>
 <span class="c1">## and then use pyplot functions to generate a histogram of trip times.     ##</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./data/NYC-2016-Summary.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
@@ -12634,8 +12550,7 @@ NYC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you followed the use of the <code>.hist()</code> and <code>.show()</code> functions exactly like in the example, you're probably looking at a plot that's completely unexpected. The plot consists of one extremely tall bar on the left, maybe a very short second bar, and a whole lot of empty space in the center and right. Take a look at the duration values on the x-axis. This suggests that there are some highly infrequent outliers in the data. Instead of reprocessing the data, you will use additional parameters with the <code>.hist()</code> function to limit the range of data that is plotted. Documentation for the function can be found <a href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.hist.html#matplotlib.pyplot.hist">[here]</a>.</p>
-<p><strong>Question 5</strong>: Use the parameters of the <code>.hist()</code> function to plot the distribution of trip times for the Subscribers in your selected city. Do the same thing for only the Customers. Add limits to the plots so that only trips of duration less than 75 minutes are plotted. As a bonus, set the plots up so that bars are in five-minute wide intervals. For each group, where is the peak of each distribution? How would you describe the shape of each distribution?</p>
+<p><strong>Question</strong>: Use the parameters of the <code>.hist()</code> function to plot the distribution of trip times for the Subscribers in NYC. Do the same thing for only the Customers. Add limits to the plots so that only trips of duration less than 75 minutes are plotted. Set the plots up so that bars are in five-minute wide intervals. For each group, where is the peak of each distribution? How would you describe the shape of each distribution?</p>
 <p><strong>Answer</strong>: working with NYC <br>
             Subscribers peak : about 7 minutes <br>
             Subscribers shape : skewed to right <br>
@@ -12647,32 +12562,32 @@ NYC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to answer Question 5. ##</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use open function to open the csv file. ##</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./data/NYC-2016-Summary.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
     
-    <span class="c1">#initialize count variables</span>
+    <span class="c1"># initialize count variables</span>
     <span class="n">subscribers_durations</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">customers_durations</span> <span class="o">=</span> <span class="p">[]</span>
     
-    <span class="c1">#read rows in the file</span>
+    <span class="c1"># read rows in the file</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
-        <span class="c1">#check the user type</span>
+        <span class="c1"># check the user type</span>
         <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">:</span>
             <span class="n">subscribers_durations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]))</span>           
         <span class="k">else</span><span class="p">:</span>
             <span class="n">customers_durations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]))</span>
             
-<span class="c1">#visualize histogram of subscribers duration        </span>
+<span class="c1"># visualize histogram of subscribers duration        </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">subscribers_durations</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span> <span class="nb">range</span> <span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">75</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Subscribers Durations&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Trip Duration (m)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1">#visualize histogram of customers duration   </span>
+<span class="c1"># visualize histogram of customers duration   </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">customers_durations</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">5</span><span class="p">)],</span> <span class="nb">range</span> <span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">75</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Customers Durations&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Trip Duration (m)&#39;</span><span class="p">)</span>
@@ -12726,14 +12641,8 @@ NYC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><a id='eda_continued'></a></p>
-<h2 id="Performing-Your-Own-Analysis">Performing Your Own Analysis<a class="anchor-link" href="#Performing-Your-Own-Analysis">&#182;</a></h2><p>So far, you've performed an initial exploration into the data available. You have compared the relative volume of trips made between three U.S. cities and the ratio of trips made by Subscribers and Customers. For one of these cities, you have investigated differences between Subscribers and Customers in terms of how long a typical trip lasts. Now it is your turn to continue the exploration in a direction that you choose. Here are a few suggestions for questions to explore:</p>
-<ul>
-<li>How does ridership differ by month or season? Which month / season has the highest ridership? Does the ratio of Subscriber trips to Customer trips change depending on the month or season?</li>
-<li>Is the pattern of ridership different on the weekends versus weekdays? On what days are Subscribers most likely to use the system? What about Customers? Does the average duration of rides change depending on the day of the week?</li>
-<li>During what time of day is the system used the most? Is there a difference in usage patterns for Subscribers and Customers?</li>
-</ul>
-<p>If any of the questions you posed in your answer to question 1 align with the bullet points above, this is a good opportunity to investigate one of them. As part of your investigation, you will need to create a visualization. If you want to create something other than a histogram, then you might want to consult the <a href="https://matplotlib.org/devdocs/api/pyplot_summary.html">Pyplot documentation</a>. In particular, if you are plotting values across a categorical variable (e.g. city, user type), a bar chart will be useful. The <a href="https://matplotlib.org/devdocs/api/_as_gen/matplotlib.pyplot.bar.html#matplotlib.pyplot.bar">documentation page for <code>.bar()</code></a> includes links at the bottom of the page with examples for you to build off of for your own use.</p>
-<p><strong>Question 6</strong>: Continue the investigation by exploring another question that could be answered by the data available. Document the question you want to explore below. Your investigation should involve at least two variables and should compare at least two groups. You should also use at least one visualization as part of your explorations.</p>
+<h2 id="Performing-Your-Own-Analysis">Performing Your Own Analysis<a class="anchor-link" href="#Performing-Your-Own-Analysis">&#182;</a></h2><p>So far, we've performed an initial exploration into the data available. we have compared the relative volume of trips made between three U.S. cities and the ratio of trips made by Subscribers and Customers. For NYC, we have investigated differences between Subscribers and Customers in terms of how long a typical trip lasts.</p>
+<p><strong>Question</strong>: Continue the investigation by exploring another question that could be answered by the data available. Document the question you want to explore below. Our investigation should involve at least two variables and should compare at least two groups. We should also use at least one visualization as part of your explorations.</p>
 <p><strong>Answer</strong>: Working with Washington city.<br>
 During what time of day is the system used the most? Is there a difference in usage patterns for Subscribers and Customers?
 answer : <br>
@@ -12746,41 +12655,37 @@ If we take Customers trips we see the peak from 12:00 to 17:00. <br></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Use this and additional cells to continue to explore the dataset. ##</span>
-<span class="c1">## Once you have performed your exploration, document your findings  ##</span>
-<span class="c1">## in the Markdown cell above. ##</span>
-
-<span class="c1">#initialize count variables</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#initialize count variables</span>
 <span class="n">subscriber_renting_time</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">customer_renting_time</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./data/Washington-2016-Summary.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
     <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">f_in</span><span class="p">)</span>
     
-    <span class="c1">#read rows of the file</span>
+    <span class="c1"># read rows of the file</span>
     <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
-        <span class="c1">#check the user type</span>
+        <span class="c1"># check the user type</span>
         <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;user_type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Subscriber&#39;</span><span class="p">:</span>
             <span class="n">subscriber_renting_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]))</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">customer_renting_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">]))</span>
             
-<span class="c1">#visualize histogram of all users renting time   </span>
+<span class="c1"># visualize histogram of all users renting time   </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">subscriber_renting_time</span> <span class="o">+</span> <span class="n">customer_renting_time</span><span class="p">)</span> <span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Trips Time Distripution&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;hour (24 based)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1">#visualize histogram of subscribers renting time </span>
+<span class="c1"># visualize histogram of subscribers renting time </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">subscriber_renting_time</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Subscribers Trips Time Distripution&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;hour (24 based)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 
-<span class="c1">#visualize histogram of customers renting time </span>
+<span class="c1"># visualize histogram of customers renting time </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">customer_renting_time</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Customers Trips Time Distripution&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;hour (24 based)&#39;</span><span class="p">)</span>
@@ -12852,18 +12757,13 @@ If we take Customers trips we see the peak from 12:00 to 17:00. <br></p>
 <h2 id="Conclusions">Conclusions<a class="anchor-link" href="#Conclusions">&#182;</a></h2><p>Congratulations on completing the project! This is only a sampling of the data analysis process: from generating questions, wrangling the data, and to exploring the data. Normally, at this point in the data analysis process, you might want to draw conclusions about the data by performing a statistical test or fitting the data to a model for making predictions. There are also a lot of potential analyses that could be performed on the data which are not possible with only the data provided. For example, detailed location data has not been investigated. Where are the most commonly used docks? What are the most common routes? As another example, weather has potential to have a large impact on daily ridership. How much is ridership impacted when there is rain or snow? Are subscribers or customers affected more by changes in weather?</p>
 <p><strong>Question 7</strong>: Putting the bike share data aside, think of a topic or field of interest where you would like to be able to apply the techniques of data science. What would you like to be able to learn from your chosen subject?</p>
 <p><strong>Answer</strong>: I would apply it on COFFEE SHOPES. I would like to know the average duration the customers set on the coffee. What time during the day there is highest peak? Average number of people who are together (to distribute chairs efficiency)</p>
-<blockquote><p><strong>Tip</strong>: If we want to share the results of our analysis with others, we aren't limited to giving them a copy of the jupyter Notebook (.ipynb) file. We can also export the Notebook output in a form that can be opened even for those without Python installed. From the <strong>File</strong> menu in the upper left, go to the <strong>Download as</strong> submenu. You can then choose a different format that can be viewed more generally, such as HTML (.html) or
-PDF (.pdf). You may need additional packages or software to perform these exports.</p>
-<p>If you are working on this project via the Project Notebook page in the classroom, you can also submit this project directly from the workspace. <strong>Before you do that</strong>, you should save an HTML copy of the completed project to the workspace by running the code cell below. If it worked correctly, the output code should be a 0, and if you click on the jupyter icon in the upper left, you should see your .html document in the workspace directory. Alternatively, you can download the .html copy of your report following the steps in the previous paragraph, then <em>upload</em> the report to the directory (by clicking the jupyter icon).</p>
-<p>Either way, once you've gotten the .html report in your workspace, you can complete your submission by clicking on the "Submit Project" button to the lower-right hand side of the workspace.</p>
-</blockquote>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">call</span>
@@ -12880,7 +12780,7 @@ PDF (.pdf). You may need additional packages or software to perform these export
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[47]:</div>
+<div class="prompt output_prompt">Out[17]:</div>
 
 
 
